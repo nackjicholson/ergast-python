@@ -11,6 +11,8 @@ It should:
 - be organized into packages for each resource type
 - convert the data to not all be strings.
 - be well tested, unit and integration.
+- methods for really commmon requests
+- query builder for custom requests
 - more ideas as I go.
 
 
