@@ -1,12 +1,12 @@
-import requests
+from __future__ import absolute_import
 
-API_URL = 'http://ergast.com/api/f1'
+from . import client
+from .request import ErgastRequest
 
 
 def get_seasons():
-    endpoint = '/seasons.json'
-    res = requests.get(API_URL + endpoint)
-    res_data = res.json()
+    req = ErgastRequest(resource='seasons')
+    res_data = client.send(req)
     mrd = res_data['MRData']
     result = mrd['SeasonTable']['Seasons']
 
@@ -20,8 +20,8 @@ def get_seasons():
 
 def get_driver_seasons(driver_id):
     endpoint = '/drivers/{}/seasons.json'.format(driver_id)
-    res = requests.get(API_URL + endpoint)
-    res_data = res.json()
+    req = ErgastRequest(resource='seasons', criteria=dict(drivers=driver_id))
+    res_data = client.send(req)
     mrd = res_data['MRData']
     result = mrd['SeasonTable']['Seasons']
 

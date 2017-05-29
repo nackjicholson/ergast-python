@@ -5,7 +5,9 @@ setup(
     version='0.0.0',
     packages=find_packages(),
     install_requires=[
-        'requests==2.16.5'
+        'Cerberus==1.1',
+        'requests==2.16.5',
+        'six'
     ],
     author="Will Vaughn",
     author_email="willieviseoae@gmail.com",
