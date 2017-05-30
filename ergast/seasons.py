@@ -1,11 +1,11 @@
 from __future__ import absolute_import
 
 from . import client
-from .request import ErgastRequest
+from .request import Request
 
 
 def get_seasons():
-    req = ErgastRequest(resource='seasons')
+    req = Request(resource='seasons')
     res_data = client.send(req)
     mrd = res_data['MRData']
     result = mrd['SeasonTable']['Seasons']
@@ -20,7 +20,7 @@ def get_seasons():
 
 def get_driver_seasons(driver_id):
     endpoint = '/drivers/{}/seasons.json'.format(driver_id)
-    req = ErgastRequest(resource='seasons', criteria=dict(drivers=driver_id))
+    req = Request(resource='seasons', criteria=dict(drivers=driver_id))
     res_data = client.send(req)
     mrd = res_data['MRData']
     result = mrd['SeasonTable']['Seasons']

@@ -1,9 +1,8 @@
 """
 
 """
-from six import iteritems
-
 import requests
+from six import iteritems
 from uritemplate import URITemplate
 
 
@@ -19,6 +18,9 @@ def send(req):
 
     url = url_tmpl.expand(req, criteria=criteria)
     res = requests.get(url)
+
+    res.raise_for_status()
+
     res_data = res.json()
 
     # return Formatter(res_data, req.get('resource'))
