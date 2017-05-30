@@ -14,7 +14,7 @@ def send(req):
         criteria.append(value)
 
     url_tmpl = URITemplate('{protocol}://{host}/api{/series}{/season}{/round}'
-                           '{/criteria*}/{resource}{/id}.json{?limit,offset}')
+                           '{/criteria*}{/resource}{/id}.json{?limit,offset}')
 
     url = url_tmpl.expand(req, criteria=criteria)
     res = requests.get(url)

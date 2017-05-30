@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='ergast',
-    version='0.0.1',
+    version='0.0.3',
     packages=find_packages(),
     install_requires=[
         'Cerberus==1.1',
         'requests==2.16.5',
-        'six'
+        'six',
+        'uritemplate==3.0.0'
     ],
     author="Will Vaughn",
     author_email="willieviseoae@gmail.com",
