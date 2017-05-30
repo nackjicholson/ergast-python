@@ -1,10 +1,13 @@
 """
 Ergast client templates ergast service urls from Request object
 """
+from __future__ import absolute_import
 
 import requests
 from six import iteritems
 from uritemplate import URITemplate
+
+from .formatter import formatter
 
 
 def send(req):
@@ -33,4 +36,5 @@ def send(req):
     # if you want the full response for any reason.
     #
     # return Formatter(res_data, req.get('resource'))
-    return res_data
+    # return res_data
+    return formatter(res_data, req)
