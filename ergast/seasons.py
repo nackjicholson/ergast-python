@@ -4,7 +4,7 @@ from . import client
 from .request import Request
 
 
-def get_seasons():
+def get_all():
     req = Request(resource='seasons')
     res_data = client.send(req)
     mrd = res_data['MRData']
@@ -20,7 +20,7 @@ def get_seasons():
     }
 
 
-def get_driver_seasons(driver_id):
+def by_driver(driver_id):
     req = Request(resource='seasons', criteria=dict(drivers=driver_id))
     res_data = client.send(req)
     mrd = res_data['MRData']

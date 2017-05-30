@@ -17,7 +17,7 @@ It should:
 - have constantly improving documentation
 
 
-**Generic Custom ErgastRequest**
+**Generic Custom Request**
 
 ```python
 from ergast import Request, client
@@ -35,8 +35,7 @@ result = client.send(req)
 ```python
 import ergast
 
-ergast.seasons.get_driver_seasons('ricciardo')
-# [{'season': '2011', 'url': 'http://en.wikipedia.org/wiki/2011_Formula_One_season'}, ...]
+ergast.seasons.by_driver('ricciardo')
 
 # Convenience for doing:
 # req = Request(resource='seasons', criteria=dict(drivers='ricciardo'))
