@@ -11,6 +11,8 @@ def get_seasons():
     result = mrd['SeasonTable']['Seasons']
 
     return {
+        'url': mrd['url'],
+        'req': req.data,
         'limit': mrd['limit'],
         'offset': mrd['offset'],
         'total': mrd['total'],
@@ -19,13 +21,14 @@ def get_seasons():
 
 
 def get_driver_seasons(driver_id):
-    endpoint = '/drivers/{}/seasons.json'.format(driver_id)
     req = Request(resource='seasons', criteria=dict(drivers=driver_id))
     res_data = client.send(req)
     mrd = res_data['MRData']
     result = mrd['SeasonTable']['Seasons']
 
     return {
+        'url': mrd['url'],
+        'req': req.data,
         'limit': mrd['limit'],
         'offset': mrd['offset'],
         'total': mrd['total'],

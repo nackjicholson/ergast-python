@@ -1,5 +1,5 @@
 """
-ErgastRequest for describing requests to the ergast service
+Request for describing requests to the ergast service
 """
 
 from cerberus import Validator
@@ -39,6 +39,11 @@ req_validator = Validator(req_schema)
 
 
 class Request(UserDict):
+    """
+    Describes an Ergast API query.
+
+    Used by ergast.client to build urls and execute calls.
+    """
     def __init__(self, *args, **kwargs):
         defaults = {'protocol': 'http', 'host': 'www.ergast.com',
                     'series': 'f1', 'limit': '1000', 'offset': '0'}
