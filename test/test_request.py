@@ -16,8 +16,8 @@ class RequestTestCase(unittest.TestCase):
         subject = Request()
 
         actual = subject.data
-        expected = {'protocol': 'http', 'host': 'www.ergast.com',
-                    'series': 'f1', 'limit': '1000', 'offset': '0'}
+        expected = {'protocol': 'http', 'host': 'www.ergast.com', 'series': 'f1',
+                    'limit': '1000', 'offset': '0', 'resource': 'races'}
 
         self.assertEqual(actual, expected)
 

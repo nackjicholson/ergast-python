@@ -46,7 +46,7 @@ class Request(UserDict):
     """
     def __init__(self, *args, **kwargs):
         defaults = {'protocol': 'http', 'host': 'www.ergast.com',
-                    'series': 'f1', 'limit': '1000', 'offset': '0'}
+                    'series': 'f1', 'limit': '1000', 'offset': '0', 'resource': 'races'}
         settings = dict(defaults, **kwargs)
 
         if not req_validator.validate(settings):

@@ -1,5 +1,14 @@
 from cerberus import Validator
 
+
+def build_response(mrd, result, req):
+    return dict(url=mrd['url'],
+                limit=mrd['limit'],
+                offset=mrd['offset'],
+                total=mrd['total'],
+                req=req,
+                result=result)
+
 season_schema = {
     'season': {'type': ['string', 'integer'], 'coerce': int},
     'url': {'type': 'string'}
@@ -10,15 +19,6 @@ season_validator = Validator({
         'schema': {'type': 'dict', 'schema': season_schema}
     }
 }, allow_unknown=True)
-
-
-def build_response(mrd, result, req):
-    return dict(url=mrd['url'],
-                limit=mrd['limit'],
-                offset=mrd['offset'],
-                total=mrd['total'],
-                req=req,
-                result=result)
 
 
 def seasons_formatter(res_data, req):
@@ -34,7 +34,7 @@ def seasons_formatter(res_data, req):
     return build_response(mrd, result, req.data)
 
 
-formatters = [seasons_formatter, lambda res_data, req: res_data]
+formatters = [seasons_formatter]
 
 
 def formatter(res_data, req):
@@ -43,3 +43,5 @@ def formatter(res_data, req):
 
         if result is not None:
             return result
+
+    return res_data

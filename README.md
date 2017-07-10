@@ -25,7 +25,7 @@ from ergast import Request, client
 req = Request(resource='results', id='1', criteria=dict(drivers='ricciardo'))
 
 result = client.send(req)
-# Result is the data from following request listing the 4 races won by Daniel Ricciardo
+# Result is the data from following request listing the races won by Daniel Ricciardo
 # GET http://ergast.com/api/f1/drivers/ricciardo/results/1.json
 ```
 
